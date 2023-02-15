@@ -1,0 +1,87 @@
+#include <iostream>
+#include "stdlib.h"
+#include "cmath"
+
+using namespace std;
+
+//prototipos
+void volumenEsfera();
+void fibonacci();
+bool aprobado(float);
+
+float nota;
+
+
+//main
+void main() {
+	int opcion;
+
+	do {
+		cout << "		***MENU***" << endl;
+		cout << "		==========" << endl << endl;
+		cout << "1. Calcular el volumen de una esfera" << endl;
+		cout << "2. Mostrar una cantidad de cifras de la serie de fibonacci" << endl;
+		cout << "3. Determinar si un estudiante esta aprobado o no" << endl;
+		cout << "0. Salir" << endl << endl ;
+		cout << "Ingrese la opcion: "; cin >> opcion; cout << endl;
+		switch (opcion) {
+		case 1: volumenEsfera();
+			break;
+		
+		case 2: fibonacci();
+			break;
+		
+		case 3: 
+			cout << "Digite su nota: "; cin >> nota;
+
+			if (aprobado(nota))
+				cout << "El estudiante esta aprobado" << endl<<endl;
+			else
+				cout << "El estudiante NO esta aprobado" << endl<<endl;
+			break;
+			
+		case 0: cout << "Salir"<<endl;
+			break;
+		default: cout << "Opcion invalida"<<endl;
+			break;
+		}
+		system("pause");
+		system("cls");
+
+		} while (opcion != 0);
+		
+}
+//funciones
+
+void volumenEsfera(){
+	double volumen, radio;
+
+	cout << "Ingrese el radio de la esfera: "; cin >> radio;
+
+	volumen = 4 / 3 * 3.14 * pow(radio, 3);
+
+	cout << endl << "El volumen de la esfera es " << volumen <<" unidades cubicas" << endl<<endl;
+}
+
+void fibonacci() {
+	int n;
+
+	cout << "Digite la cantidad de cifras que desea mostrar: "; cin >> n;
+
+	int a1 = 0, a2 = 1, a3;
+
+	cout << a1 << ", " << a2 << ", ";
+
+	for (int i = 3; i <= n; i++) {
+		a3 = a1 + a2;
+		cout << a3 << ", ";
+
+		a1 = a2;
+		a2 = a3;
+	}
+	cout << endl << endl;
+}
+
+bool aprobado(float nota){
+	return (nota >= 51);
+}
