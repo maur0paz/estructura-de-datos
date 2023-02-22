@@ -1,0 +1,33 @@
+#include <iostream>
+#include "stdlib.h"
+
+using namespace std;
+
+int factorial(int);
+
+int main(void) {
+    system("color 0a");
+    int nro;
+    cout << "\n\t\t[     FACTORIAL     ]\n"<<endl;
+    cout << " OBTENER EL FACTORIAL DE UN NUMERO " << endl;
+
+    do {
+        cout <<endl<< " Ingrese un numero: "; cin >> nro;
+
+        if (nro < 0) cout << "\nIngrese un numero entero y positivo... \n";
+
+    } while (nro < 0);
+
+    cout << "\n Factorial:"<< factorial(nro)<<endl;
+    return 0;
+}
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    else {
+        return n * factorial (n - 1);
+    }
+    return n;
+}
