@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+    string numero, numero2;
+
+    cout << "Digite su numero con el formato +xx-xxxxxxxxx-xx: "; cin >> numero;
+
+    numero2 = numero.substr(4, 9);
+
+    cout << "Su numero es: " << numero2;
+}
